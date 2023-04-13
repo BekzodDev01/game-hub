@@ -14,7 +14,7 @@ export interface Game {
   parent_platforms:{platform: Platform}[]	
   metacritic: number  
 }
-interface FetchGames {
+interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
@@ -26,7 +26,7 @@ const useGames =()=> {
             const controller = new AbortController();
             setIsloading(true)
             apiClient
-            .get<FetchGames>("/games", {signal: controller.signal})
+            .get<FetchGamesResponse>("/games", {signal: controller.signal})
             .then((res) => {
               setGames(res.data.results)
               setIsloading(false)
