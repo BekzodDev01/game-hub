@@ -1,10 +1,17 @@
 import  { useEffect, useState } from "react";
 import apiClient, {CanceledError}   from "../services/api-client";
 
+export interface Platform {
+    id: number, 
+    name: String, 
+    slug: string
+}
+
 export interface Game {
   name: string;
   id: number;
-  background_image: string	
+  background_image: string, 
+  parent_platforms:{platform: Platform}[]	
 
 }
 interface FetchGames {
