@@ -1,9 +1,11 @@
 import  { useEffect, useState } from "react";
 import apiClient, {CanceledError}   from "../services/api-client";
 
-interface Game {
+export interface Game {
   name: string;
   id: number;
+  background_image: string	
+
 }
 interface FetchGames {
   count: number;
